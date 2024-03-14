@@ -23,7 +23,6 @@
 	
 	int loginCheck = MainService.getInstance().login(vo);
 	String saveID = request.getParameter("saveID");
-	out.println(saveID);
 //	out.println(loginCheck);
 
 	int backPage;
@@ -38,13 +37,12 @@
 		out.println("alert('로그인 불가')");
 		out.println("location.href='./login.jsp'");
 	} else {
-		if (saveID == "on") {
+		if (saveID != null) {
 			session.setAttribute("loginInfoID", id);
 			session.setAttribute("loginCheck", loginCheck);
-			Cookie cookie = new Cookie("saveID", URLEncoder.encode(id, "UTF-8"));
+			Cookie cookie = new Cookie("saveID", id);
 			response.addCookie(cookie);
-			out.println(backPage);
-			out.println("alert('로그인 성공')");
+	//		out.println("alert('로그인 성공')");
 		} else {
 			session.setAttribute("loginInfoID", id);
 			session.setAttribute("loginCheck", loginCheck);

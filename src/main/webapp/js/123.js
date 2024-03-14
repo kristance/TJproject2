@@ -1,3 +1,6 @@
 window.addEventListener('load', function () {
-	alert('123.js실행');
+//	alert(document.cookie + "123.js");
+	let cookieArray = document.cookie.split(';|=');
+		let result = [];
+		
 })
